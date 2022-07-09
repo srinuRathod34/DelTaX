@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DelTaX.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class MovieController : Controller
     {
         private MoviesManager moviesManager{get;set;}
@@ -16,6 +18,7 @@ namespace DelTaX.Controllers
             return View();
         }
         
+        [HttpGet("GetAllMovieDetails")]
         public ActionResult GetAllMovieDetails()
         {
             try
@@ -32,6 +35,7 @@ namespace DelTaX.Controllers
             return NoContent();
         }
 
+        [HttpPost("AddMovieDetails")]
         public ActionResult AddMovieDetails(AddMovieDetails addEditMovieDetails)
         {
             int AddedId = 0;
@@ -51,6 +55,7 @@ namespace DelTaX.Controllers
             }
         }
 
+        [HttpPut("EditMovieDetails")]
         public ActionResult EditMovieDetails(EditMovieDetails editMovieDetails)
         {
             int editedId = 0;
